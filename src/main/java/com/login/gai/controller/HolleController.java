@@ -1,6 +1,5 @@
 package com.login.gai.controller;
 
-import com.login.gai.domain.HolleWorld;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -15,19 +14,19 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "${api.basePath}/holle")
 public class HolleController {
-    @ApiOperation("惯例holle World")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "name", paramType = "query", dataType = "String", required = true, defaultValue = "")
-    })
-    @CrossOrigin
-    @RequestMapping(value = "/getHolleWorld",method = RequestMethod.GET)
-    public HolleWorld getHolleWorld(@RequestParam(value = "name", required = false, defaultValue = "") String name){
-        String str = "hello world!!!!";
-        HolleWorld holleWorld = new HolleWorld();
-        if(Strings.isNotBlank(name)){
-            holleWorld.setName(name);
-        }
-        holleWorld.setTalk(str);
-        return holleWorld;
-    }
+//    @ApiOperation("惯例holle World")
+//    @ApiImplicitParams({
+//            @ApiImplicitParam(name = "name", paramType = "query", dataType = "String", required = true, defaultValue = "")
+//    })
+//    @CrossOrigin
+//    @RequestMapping(value = "/getHolleWorld",method = RequestMethod.GET)
+//    public HolleWorld getHolleWorld(@RequestParam(value = "name", required = false, defaultValue = "") String name){
+//        String str = "hello world!!!!";
+//        HolleWorld holleWorld = new HolleWorld();
+//        if(Strings.isNotBlank(name)){
+//            holleWorld.setName(name);
+//        }
+//        holleWorld.setTalk(str);
+//        return holleWorld;
+//    }
 }
