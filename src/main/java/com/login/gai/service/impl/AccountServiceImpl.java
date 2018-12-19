@@ -71,4 +71,9 @@ public class AccountServiceImpl implements AccountService{
     public int updateByPrimaryKey(Account record) {
         return accountMapper.updateByPrimaryKey(record);
     }
+
+    @Override
+    public List<Account> selectByUserName(String username) {
+        return accountMapper.selectByUserName(username);
+    }
 }

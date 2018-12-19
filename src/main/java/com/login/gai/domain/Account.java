@@ -1,26 +1,40 @@
 package com.login.gai.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
+@ApiModel("账号密码")
 public class Account {
+    @ApiModelProperty("主键标识")
     private Integer id;
 
+    @ApiModelProperty("用户名")
     private String username;
 
+    @ApiModelProperty("密码")
     private String password;
 
+    @ApiModelProperty("用户信息关联ID")
     private Integer userId;
 
+    @ApiModelProperty("创建时间")
     private Date createTime;
 
+    @ApiModelProperty("修改时间")
     private Date modifyTime;
 
+    @ApiModelProperty("是否有效")
     private Integer isvalid;
 
+    @ApiModelProperty("版本号")
     private Integer rversion;
 
+    @ApiModelProperty("预留字段")
     private String reserved1;
 
+    @ApiModelProperty("预留字段")
     private String reserved2;
 
     public Integer getId() {

@@ -30,4 +30,6 @@ public interface AccountService {
     int updateByPrimaryKeySelective(Account record);
 
     int updateByPrimaryKey(Account record);
+
+    List<Account> selectByUserName(String username);
 }
