@@ -3,6 +3,7 @@ package com.login.gai.service.impl;
 import com.login.gai.dao.AccountMapper;
 import com.login.gai.domain.Account;
 import com.login.gai.domain.AccountExample;
+import com.login.gai.domain.AccountKey;
 import com.login.gai.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.List;
 @Service
 public class AccountServiceImpl implements AccountService{
     @Autowired
-    private AccountMapper accountMapper;
+    AccountMapper accountMapper;
 
     @Override
     public int countByExample(AccountExample example) {
@@ -28,8 +29,8 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
-    public int deleteByPrimaryKey(Integer id) {
-        return accountMapper.deleteByPrimaryKey(id);
+    public int deleteByPrimaryKey(AccountKey key) {
+        return accountMapper.deleteByPrimaryKey(key);
     }
 
     @Override
@@ -48,8 +49,8 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
-    public Account selectByPrimaryKey(Integer id) {
-        return accountMapper.selectByPrimaryKey(id);
+    public Account selectByPrimaryKey(AccountKey key) {
+        return accountMapper.selectByPrimaryKey(key);
     }
 
     @Override
@@ -70,10 +71,5 @@ public class AccountServiceImpl implements AccountService{
     @Override
     public int updateByPrimaryKey(Account record) {
         return accountMapper.updateByPrimaryKey(record);
-    }
-
-    @Override
-    public List<Account> selectByUserName(String username) {
-        return accountMapper.selectByUserName(username);
     }
 }

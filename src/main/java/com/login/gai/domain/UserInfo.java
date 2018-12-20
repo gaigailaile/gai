@@ -1,40 +1,60 @@
 package com.login.gai.domain;
 
-import io.swagger.annotations.ApiModelProperty;
-
 import java.util.Date;
 
-public class Account extends AccountKey {
-    @ApiModelProperty("密码")
-    private String password;
+public class UserInfo {
+    private Integer id;
 
-    @ApiModelProperty("用户信息关联ID")
+    private String name;
+
+    private Integer sex;
+
+    private String idCode;
+
     private Integer usersId;
 
-    @ApiModelProperty("创建时间")
     private Date createTime;
 
-    @ApiModelProperty("修改时间")
     private Date modifyTime;
 
-    @ApiModelProperty("是否有效")
     private Integer isvalid;
 
-    @ApiModelProperty("版本号")
     private Integer rversion;
 
-    @ApiModelProperty("预留字段")
     private String reserved1;
 
-    @ApiModelProperty("预留字段")
     private String reserved2;
 
-    public String getPassword() {
-        return password;
+    public Integer getId() {
+        return id;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public Integer getSex() {
+        return sex;
+    }
+
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
+    public String getIdCode() {
+        return idCode;
+    }
+
+    public void setIdCode(String idCode) {
+        this.idCode = idCode == null ? null : idCode.trim();
     }
 
     public Integer getUsersId() {

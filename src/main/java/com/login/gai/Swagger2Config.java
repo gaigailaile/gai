@@ -65,13 +65,43 @@ public class Swagger2Config {
         version = environment.getProperty("api.version");
     }
 
+//    @Bean
+//    public Docket HolleControllerApi() {
+//        return new Docket(DocumentationType.SWAGGER_2)
+//                .pathProvider(new PathProvider() {
+//                    @Override
+//                    public String getApplicationBasePath() {
+//                        return "/holle";
+//                    }
+//
+//                    @Override
+//                    public String getOperationPath(String operationPath) {
+//                        return getLastPath(operationPath);
+//                    }
+//
+//                    @Override
+//                    public String getResourceListingPath(String groupName, String apiDeclaration) {
+//                        return basePath+"/holle/**";
+//                    }
+//                })
+//                .host(host)
+//                .apiInfo(new ApiInfoBuilder().title("holle接口文档").description("接口说明")
+//                        .contact(new Contact("holle", "", null))
+//                        .version(version)
+//                        .build())
+//                .select()
+//                .apis(RequestHandlerSelectors.basePackage("com.login.gai.controller"))
+//                .paths(PathSelectors.ant(basePath + "/holle/**"))
+//                .build().groupName("holle");
+//    }
+
     @Bean
-    public Docket HolleControllerApi() {
+    public Docket AccountControllerApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .pathProvider(new PathProvider() {
                     @Override
                     public String getApplicationBasePath() {
-                        return "/holle";
+                        return "/Account";
                     }
 
                     @Override
@@ -81,18 +111,18 @@ public class Swagger2Config {
 
                     @Override
                     public String getResourceListingPath(String groupName, String apiDeclaration) {
-                        return basePath+"/holle/**";
+                        return basePath+"/Account/**";
                     }
                 })
                 .host(host)
-                .apiInfo(new ApiInfoBuilder().title("holle接口文档").description("接口说明")
-                        .contact(new Contact("holle", "", null))
+                .apiInfo(new ApiInfoBuilder().title("Account接口文档").description("接口说明")
+                        .contact(new Contact("Account", "", null))
                         .version(version)
                         .build())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.login.gai.controller"))
-                .paths(PathSelectors.ant(basePath + "/holle/**"))
-                .build().groupName("holle");
+                .paths(PathSelectors.ant(basePath + "/Account/**"))
+                .build().groupName("Account");
     }
 
     private String getLastPath(String path){

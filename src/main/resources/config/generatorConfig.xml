@@ -57,13 +57,27 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
         <!-- 指定数据库表 -->
-        <table tableName="account" domainObjectName="Account" enableCountByExample="true"
+        <!--<table tableName="account" domainObjectName="Account" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+               <!--enableDeleteByPrimaryKey="true">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql"/>-->
+        <!--</table>-->
+        <table tableName="users" domainObjectName="Users" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
                enableDeleteByPrimaryKey="true">
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="MySql"/>
         </table>
+        <!--<table tableName="user_info" domainObjectName="UserInfo" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+               <!--enableDeleteByPrimaryKey="true">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql"/>-->
+        <!--</table>-->
 
     </context>
 </generatorConfiguration>

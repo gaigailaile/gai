@@ -2,6 +2,7 @@ package com.login.gai.service;
 
 import com.login.gai.domain.Account;
 import com.login.gai.domain.AccountExample;
+import com.login.gai.domain.AccountKey;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface AccountService {
 
     int deleteByExample(AccountExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(AccountKey key);
 
     int insert(Account record);
 
@@ -21,7 +22,7 @@ public interface AccountService {
 
     List<Account> selectByExample(AccountExample example);
 
-    Account selectByPrimaryKey(Integer id);
+    Account selectByPrimaryKey(AccountKey key);
 
     int updateByExampleSelective(Account record, AccountExample example);
 
@@ -30,6 +31,4 @@ public interface AccountService {
     int updateByPrimaryKeySelective(Account record);
 
     int updateByPrimaryKey(Account record);
-
-    List<Account> selectByUserName(String username);
 }

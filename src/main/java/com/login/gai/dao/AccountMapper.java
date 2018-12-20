@@ -2,6 +2,7 @@ package com.login.gai.dao;
 
 import com.login.gai.domain.Account;
 import com.login.gai.domain.AccountExample;
+import com.login.gai.domain.AccountKey;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -15,7 +16,7 @@ public interface AccountMapper {
 
     int deleteByExample(AccountExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(AccountKey key);
 
     int insert(Account record);
 
@@ -23,7 +24,7 @@ public interface AccountMapper {
 
     List<Account> selectByExample(AccountExample example);
 
-    Account selectByPrimaryKey(Integer id);
+    Account selectByPrimaryKey(AccountKey key);
 
     int updateByExampleSelective(@Param("record") Account record, @Param("example") AccountExample example);
 
@@ -32,6 +33,4 @@ public interface AccountMapper {
     int updateByPrimaryKeySelective(Account record);
 
     int updateByPrimaryKey(Account record);
-
-    List<Account> selectByUserName(String username);
 }

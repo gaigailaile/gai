@@ -1,48 +1,68 @@
 package com.login.gai.domain;
 
-import io.swagger.annotations.ApiModelProperty;
-
 import java.util.Date;
 
-public class Account extends AccountKey {
-    @ApiModelProperty("密码")
-    private String password;
+public class Users {
+    private Integer id;
 
-    @ApiModelProperty("用户信息关联ID")
-    private Integer usersId;
+    private String mailbox;
 
-    @ApiModelProperty("创建时间")
+    private String username;
+
+    private String personalNote;
+
+    private String signature;
+
     private Date createTime;
 
-    @ApiModelProperty("修改时间")
     private Date modifyTime;
 
-    @ApiModelProperty("是否有效")
     private Integer isvalid;
 
-    @ApiModelProperty("版本号")
     private Integer rversion;
 
-    @ApiModelProperty("预留字段")
     private String reserved1;
 
-    @ApiModelProperty("预留字段")
     private String reserved2;
 
-    public String getPassword() {
-        return password;
+    public Integer getId() {
+        return id;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getUsersId() {
-        return usersId;
+    public String getMailbox() {
+        return mailbox;
     }
 
-    public void setUsersId(Integer usersId) {
-        this.usersId = usersId;
+    public void setMailbox(String mailbox) {
+        this.mailbox = mailbox == null ? null : mailbox.trim();
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
+
+    public String getPersonalNote() {
+        return personalNote;
+    }
+
+    public void setPersonalNote(String personalNote) {
+        this.personalNote = personalNote == null ? null : personalNote.trim();
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature == null ? null : signature.trim();
     }
 
     public Date getCreateTime() {
