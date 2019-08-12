@@ -1,14 +1,8 @@
 package com.login.gai.utils;
 
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 
-/**
- * Created by lenovo on 2018/5/25.
- */
-//@ApiModel
 public class ResponseModel<T> implements Serializable{
     @ApiModelProperty(value = "状态")
     private boolean status;

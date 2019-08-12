@@ -60,40 +60,11 @@ public class Swagger2Config {
     //初始化
     @PostConstruct
     private void init(){
-        host = ip+":" + environment.getProperty("server.port") + environment.getProperty("api.basePath");
-        basePath = environment.getProperty("api.basePath");
+//        host = ip+":" + environment.getProperty("server.port") + environment.getProperty("api.basePath");
+        host = ip+":" + environment.getProperty("server.port");
+//        basePath = environment.getProperty("api.basePath");
         version = environment.getProperty("api.version");
     }
-
-//    @Bean
-//    public Docket HolleControllerApi() {
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .pathProvider(new PathProvider() {
-//                    @Override
-//                    public String getApplicationBasePath() {
-//                        return "/holle";
-//                    }
-//
-//                    @Override
-//                    public String getOperationPath(String operationPath) {
-//                        return getLastPath(operationPath);
-//                    }
-//
-//                    @Override
-//                    public String getResourceListingPath(String groupName, String apiDeclaration) {
-//                        return basePath+"/holle/**";
-//                    }
-//                })
-//                .host(host)
-//                .apiInfo(new ApiInfoBuilder().title("holle接口文档").description("接口说明")
-//                        .contact(new Contact("holle", "", null))
-//                        .version(version)
-//                        .build())
-//                .select()
-//                .apis(RequestHandlerSelectors.basePackage("com.login.gai.controller"))
-//                .paths(PathSelectors.ant(basePath + "/holle/**"))
-//                .build().groupName("holle");
-//    }
 
     @Bean
     public Docket AccountControllerApi() {
@@ -111,7 +82,7 @@ public class Swagger2Config {
 
                     @Override
                     public String getResourceListingPath(String groupName, String apiDeclaration) {
-                        return basePath+"/Account/**";
+                        return "/Account/**";
                     }
                 })
                 .host(host)
@@ -121,9 +92,41 @@ public class Swagger2Config {
                         .build())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.login.gai.controller"))
-                .paths(PathSelectors.ant(basePath + "/Account/**"))
+                .paths(PathSelectors.ant("/Account/**"))
                 .build().groupName("Account");
     }
+
+    @Bean
+    public Docket FilesControllerApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .pathProvider(new PathProvider() {
+                    @Override
+                    public String getApplicationBasePath() {
+                        return "/Files";
+                    }
+
+                    @Override
+                    public String getOperationPath(String operationPath) {
+                        return getLastPath(operationPath);
+                    }
+
+                    @Override
+                    public String getResourceListingPath(String groupName, String apiDeclaration) {
+                        return "/Files/**";
+                    }
+                })
+                .host(host)
+                .apiInfo(new ApiInfoBuilder().title("微信文件上传接口").description("接口说明")
+                        .contact(new Contact("Files", "", null))
+                        .version(version)
+                        .build())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.login.gai.controller"))
+                .paths(PathSelectors.ant("/Files/**"))
+                .build().groupName("Files");
+    }
+
+
 
     private String getLastPath(String path){
         String[] pathArray = path.split("/");
