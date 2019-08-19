@@ -1,14 +1,15 @@
 package com.login.gai.utils;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
-public class ResponseModel<T> implements Serializable{
+public class ResponseModel<T> implements Serializable {
     @ApiModelProperty(value = "状态")
     private boolean status;
-    @ApiModelProperty(value = "状态码",example = "00001")
+    @ApiModelProperty(value = "状态码", example = "00001")
     private String code;
-    @ApiModelProperty(value = "错误信息",example = "成功")
+    @ApiModelProperty(value = "错误信息", example = "成功")
     private String message;
     @ApiModelProperty(value = "数据")
     private T data;

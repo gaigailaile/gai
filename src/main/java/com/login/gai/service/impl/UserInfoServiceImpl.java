@@ -13,7 +13,7 @@ import java.util.List;
  * Created by lenovo on 2018/12/20.
  */
 @Service
-public class UserInfoServiceImpl implements UserInfoService{
+public class UserInfoServiceImpl implements UserInfoService {
     @Autowired
     UserInfoMapper userInfoMapper;
 

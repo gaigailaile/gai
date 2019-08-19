@@ -1,7 +1,10 @@
 package com.login.gai.domain;
 
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
 public class Users {
     private Integer id;
 
@@ -25,88 +28,24 @@ public class Users {
 
     private String reserved2;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getMailbox() {
-        return mailbox;
-    }
-
     public void setMailbox(String mailbox) {
         this.mailbox = mailbox == null ? null : mailbox.trim();
-    }
-
-    public String getUsername() {
-        return username;
     }
 
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
     }
 
-    public String getPersonalNote() {
-        return personalNote;
-    }
-
     public void setPersonalNote(String personalNote) {
         this.personalNote = personalNote == null ? null : personalNote.trim();
-    }
-
-    public String getSignature() {
-        return signature;
     }
 
     public void setSignature(String signature) {
         this.signature = signature == null ? null : signature.trim();
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getModifyTime() {
-        return modifyTime;
-    }
-
-    public void setModifyTime(Date modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public Integer getIsvalid() {
-        return isvalid;
-    }
-
-    public void setIsvalid(Integer isvalid) {
-        this.isvalid = isvalid;
-    }
-
-    public Integer getRversion() {
-        return rversion;
-    }
-
-    public void setRversion(Integer rversion) {
-        this.rversion = rversion;
-    }
-
-    public String getReserved1() {
-        return reserved1;
-    }
-
     public void setReserved1(String reserved1) {
         this.reserved1 = reserved1 == null ? null : reserved1.trim();
-    }
-
-    public String getReserved2() {
-        return reserved2;
     }
 
     public void setReserved2(String reserved2) {

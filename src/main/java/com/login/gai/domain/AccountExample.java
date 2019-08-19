@@ -1,9 +1,12 @@
 package com.login.gai.domain;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Data
 public class AccountExample {
     protected String orderByClause;
 
@@ -753,6 +756,7 @@ public class AccountExample {
         }
     }
 
+    @Data
     public static class Criterion {
         private String condition;
 

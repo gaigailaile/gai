@@ -14,7 +14,7 @@ import java.util.List;
  * Created by lenovo on 2018/12/19.
  */
 @Service
-public class AccountServiceImpl implements AccountService{
+public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountMapper accountMapper;
 

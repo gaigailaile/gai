@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletResponse;
  * Created by lenovo on 2019/8/12.
  */
 @Component
-public class LogInterceptor implements HandlerInterceptor{
+public class LogInterceptor implements HandlerInterceptor {
     long start = System.currentTimeMillis();
+
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         start = System.currentTimeMillis();
@@ -21,7 +22,7 @@ public class LogInterceptor implements HandlerInterceptor{
 
     @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
-        System.out.println("Interceptor cost="+(System.currentTimeMillis()-start));
+        System.out.println("Interceptor cost=" + (System.currentTimeMillis() - start));
     }
 
     @Override

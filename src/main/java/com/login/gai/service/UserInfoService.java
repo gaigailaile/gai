@@ -23,9 +23,9 @@ public interface UserInfoService {
 
     UserInfo selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(UserInfo record,UserInfoExample example);
+    int updateByExampleSelective(UserInfo record, UserInfoExample example);
 
-    int updateByExample(UserInfo record,UserInfoExample example);
+    int updateByExample(UserInfo record, UserInfoExample example);
 
     int updateByPrimaryKeySelective(UserInfo record);
 

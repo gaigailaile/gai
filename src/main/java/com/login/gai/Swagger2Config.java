@@ -1,7 +1,6 @@
 package com.login.gai;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,29 +21,30 @@ import java.net.SocketException;
 import java.util.Enumeration;
 
 /**
-* Created by lenovo on 2018/8/16.
-*/
+ * Created by lenovo on 2018/8/16.
+ */
+@Slf4j
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     Environment environment;
     private String ip;
     String host;
     String basePath;
     String version;
-    Swagger2Config(){
+
+    Swagger2Config() {
         try {
-            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
                 NetworkInterface intf = en.nextElement();
                 String name = intf.getName();
                 if (!name.contains("docker") && !name.contains("lo")) {
-                    for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                    for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
                         InetAddress inetAddress = enumIpAddr.nextElement();
                         if (!inetAddress.isLoopbackAddress()) {
                             String ipaddress = inetAddress.getHostAddress().toString();
-                            if (!ipaddress.contains("::") && !ipaddress.contains("0:0:") && !ipaddress.contains("fe80")&&ipaddress.split("\\.").length==4) {
+                            if (!ipaddress.contains("::") && !ipaddress.contains("0:0:") && !ipaddress.contains("fe80") && ipaddress.split("\\.").length == 4) {
                                 ip = ipaddress;
                             }
                         }
@@ -57,11 +57,12 @@ public class Swagger2Config {
             ex.printStackTrace();
         }
     }
+
     //初始化
     @PostConstruct
-    private void init(){
+    private void init() {
 //        host = ip+":" + environment.getProperty("server.port") + environment.getProperty("api.basePath");
-        host = ip+":" + environment.getProperty("server.port");
+        host = ip + ":" + environment.getProperty("server.port");
 //        basePath = environment.getProperty("api.basePath");
         version = environment.getProperty("api.version");
     }
@@ -127,12 +128,11 @@ public class Swagger2Config {
     }
 
 
-
-    private String getLastPath(String path){
+    private String getLastPath(String path) {
         String[] pathArray = path.split("/");
-        String result ="/";
-        if(pathArray.length>1){
-            result += pathArray[pathArray.length-1];
+        String result = "/";
+        if (pathArray.length > 1) {
+            result += pathArray[pathArray.length - 1];
         }
         return result;
     }
