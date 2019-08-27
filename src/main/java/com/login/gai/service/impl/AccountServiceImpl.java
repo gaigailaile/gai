@@ -5,6 +5,7 @@ import com.login.gai.domain.Account;
 import com.login.gai.domain.AccountExample;
 import com.login.gai.domain.AccountKey;
 import com.login.gai.service.AccountService;
+import com.login.gai.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ import java.util.List;
 public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountMapper accountMapper;
+    @Autowired
+    RedisUtil redisUtil;
 
     @Override
     public int countByExample(AccountExample example) {
@@ -71,5 +74,15 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public int updateByPrimaryKey(Account record) {
         return accountMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public boolean setValue(String key, String value) {
+        return redisUtil.set(key, value);
+    }
+
+    @Override
+    public Object getValue(String key) {
+        return redisUtil.get(key);
     }
 }

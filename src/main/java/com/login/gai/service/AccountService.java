@@ -31,4 +31,8 @@ public interface AccountService {
     int updateByPrimaryKeySelective(Account record);
 
     int updateByPrimaryKey(Account record);
+
+    boolean setValue(String key,String value);
+
+    Object getValue(String key);
 }

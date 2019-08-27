@@ -120,11 +120,20 @@ public class AccountController {
     @CrossOrigin
     @GetMapping("/test")
     @Transactional
-    public ResponseModel test() {
+    public ResponseModel test(String key,String value) {
         ResponseModel responseModel = new ResponseModel();
-        responseModel.setStatus(true);
-        responseModel.setMessage("测试点及");
-        System.out.println(".......");
+        boolean success = accountService.setValue(key, value);
+        responseModel.setStatus(success);
+        return responseModel;
+    }
+
+    @CrossOrigin
+    @GetMapping("/testGet")
+    @Transactional
+    public ResponseModel testGet(String key) {
+        ResponseModel responseModel = new ResponseModel();
+        String msg = (String)accountService.getValue(key);
+        responseModel.setMessage(msg);
         return responseModel;
     }
 
